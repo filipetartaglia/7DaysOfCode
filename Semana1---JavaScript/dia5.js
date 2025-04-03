@@ -1,0 +1,60 @@
+// Chama a biblioteca de prompt - para fazer perguntas no nodejs
+let prompt = require('prompt-sync')();
+
+// Função da lista de compras
+function listaCompras() {
+
+// Declara as arrays de opções de categoria da comida
+let proteinas = [];
+let carboidratos = [];
+let frutas = [];
+
+// Pergunta se quer adicionar comida a lista
+let perguntaAdicionarComida = prompt('Você quer adicionar uma comida na sua lista de compras? ');
+
+// Transforma a string da resposta em um padrão
+let respostaComida = perguntaAdicionarComida.trim().toLowerCase();
+
+// Se for a resposta da pergunta for sim
+if (respostaComida == 'sim') {
+    
+    let perguntaComida = prompt('Qual comida você deseja inserir? ');
+    let categoriaComida = prompt('Em qual categoria esta comida se encaixa? (proteina) (carboidrato) (fruta) - (escreva igual as opções dadas): ');
+    let padraCategoriaComida = categoriaComida.trim().toLowerCase();
+
+    switch (padraCategoriaComida) {
+
+        case 'proteina':
+            proteinas.push(perguntaComida);
+            break;
+
+        case 'carboidrato':   
+            carboidratos.push(perguntaComida);
+        break;
+
+        case 'fruta':
+            frutas.push(perguntaComida);
+        break;
+            
+        default:
+        //...
+        break;
+    };
+
+    console.log('Proteínas: ' + proteinas);
+    console.log('Carboidrato: ' + carboidratos);
+    console.log('Frutas: ' + frutas);
+
+// Se a resposta for não
+} else if (respostaComida == 'não') {
+
+
+// Caso não seja nenhuma
+} else {
+
+}
+
+};
+
+// Chama a função para executar
+listaCompras();
